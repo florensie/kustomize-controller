@@ -847,6 +847,15 @@ It has two fields:
 - `.secretRef.name`: The name of the secret that contains the keys to be used for
   decryption. This field can be omitted when using the
   [global decryption](#controller-global-decryption) option.
+- `.serviceAccountName`: The name of the service account used for
+  secret-less authentication with KMS services from cloud providers.
+  If a static credential for a given cloud provider is defined
+  inside the secret referenced by `.secretRef`, that static
+  credential takes priority.
+  The configuration of this service account follows the same structure defined in the
+  [workload identity](/flux/installation/configuration/workload-identity/) documentation.
+  This field allows users to define individual cloud identities for each Kustomization
+  object. It's an alternative to using the cloud identity associated with the controller.
 
 ```yaml
 ---
